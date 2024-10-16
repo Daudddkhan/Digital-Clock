@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Didital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="body">
+      <div class="DigitalClock">
+        
+        <div class="clock">
+          <div class="week">
+            <Span id="sun">mon</Span>
+            <!-- <Span id="mon">MON</Span>
+            <Span id="tus">TUS</Span>
+            <Span id="wed">WED</Span>
+            <Span id="thus">THUS</Span>
+            <Span id="fri">FRI</Span>
+            <Span id="sat">SAT</Span> -->
+           </div>
+          <div class="Clocktime">
+            <span id="hrs">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+          </div>
+          <div class="Calendar">
+            <span id="date">00</span>
+            <span id="month">00</span>
+            <span id="year">2000</span>
+          </div>
+        
+        </div>
+    </div>
+   
+  </div>
+  <script>
+
+    let hrs = document.getElementById('hrs')
+    let min = document.getElementById('min')
+    let sec = document.getElementById('sec')
+    let pe = document.getElementById('pe')
+    let sun = document.getElementById('sun')
+    let date = document.getElementById('date')
+    let month = document.getElementById('month')
+    let year = document.getElementById('year')
+    
+    
+
+
+    setInterval(()=>{
+    let currenttime = new Date();
+    console.log(currenttime);
+    hrs.innerHTML=currenttime.getHours();
+    min.innerHTML=currenttime.getMinutes();
+    sec.innerHTML=currenttime.getSeconds();
+
+    const AllMonth= ["JAN","FEB","MARCH","APRIL","MAY","JUNE","JULY","AUG","SEP","OCT","NOV","DEC"]
+
+    const daysofweek=["SUN","MON","TUS","WED","THUS","FRI","SAT"]
+
+  sun.innerHTML=daysofweek[currenttime.getDay()];
+    date.innerHTML=currenttime.getDate();
+    month.innerHTML=AllMonth[currenttime.getMonth()];
+    year.innerHTML=currenttime.getFullYear();
+
+    },1000)
+
+    pe="AM";
+    if(hrs==0)
+    {
+      hrs=12;
+    }
+   if(hrs>12)
+   {
+    hrs = hrs-12;
+    pe="PM"
+   }
+  </script>
+</body>
+</html>
